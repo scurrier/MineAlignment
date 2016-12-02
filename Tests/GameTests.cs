@@ -21,7 +21,7 @@ namespace Tests
                 BoardDrawn = true;
             }
 
-            protected override void PrintCell(char content, int row, int column)
+            protected override void PrintCell(Cell cell)
             {
                 
             }

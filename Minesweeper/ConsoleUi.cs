@@ -10,10 +10,10 @@ namespace Minesweeper
         }
 
 
-        protected override void PrintCell(char content, int row, int column)
+        protected override void PrintCell(Cell cell)
         {
-            Console.SetCursorPosition(column, row);
-            Console.Write(content);
+            Console.SetCursorPosition(cell.Column, cell.Row);
+            Console.Write(cell.Content);
         }
     }
 }

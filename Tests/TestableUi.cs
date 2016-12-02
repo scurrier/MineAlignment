@@ -1,4 +1,5 @@
-﻿using Minesweeper;
+﻿using System.Collections.Generic;
+using Minesweeper;
 
 namespace Tests
 {
@@ -9,11 +10,14 @@ namespace Tests
             
         }
 
-        protected override void PrintCell(char content, int row, int column)
+        protected override void PrintCell(Cell cell)
         {
             CellsPrinted++;
+            PrintedCells.Add(cell);
         }
 
         public int CellsPrinted { get; private set; }
+
+        public ICollection<Cell> PrintedCells { get; } = new List<Cell>();
     }
 }

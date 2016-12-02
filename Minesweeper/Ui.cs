@@ -6,11 +6,11 @@
 
         public virtual void DrawBoard(Board board)
         {
-            var numberOfCells = board._rows * board._columns;
-            for(var i =0; i <numberOfCells ;i++)
-                PrintCell('.', 0, 0);
+            var numberOfCells = board.Rows * board.Columns;
+            for (var i = 0; i < numberOfCells; i++)
+                PrintCell(board.GetCell(0,0));
         }
 
-        protected abstract void PrintCell(char content, int row, int column);
+        protected abstract void PrintCell(Cell cell);
     }
 }

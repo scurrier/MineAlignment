@@ -2,13 +2,18 @@
 {
     public class Board
     {
-        public readonly int _rows;
-        public readonly int _columns;
+        public readonly int Rows;
+        public readonly int Columns;
 
         public Board(int rows, int columns)
         {
-            _rows = rows;
-            _columns = columns;
-        }        
+            Rows = rows;
+            Columns = columns;
+        }
+
+        public Cell GetCell(int row, int column)
+        {
+            return new Cell(row, column);
+        }
     }
 }
