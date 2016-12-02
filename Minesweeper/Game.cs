@@ -1,4 +1,6 @@
-﻿namespace Minesweeper
+﻿using System;
+
+namespace Minesweeper
 {
     public class Game
     {
@@ -24,6 +26,7 @@
     {
         public virtual void Win()
         {
+            Console.WriteLine("You win!");
         }
     }
 }
