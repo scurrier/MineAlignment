@@ -13,6 +13,7 @@ namespace Minesweeper
 
         public void Play()
         {
+            Ui.DrawBoard();
             Ui.Win();
         }
 
@@ -27,6 +28,10 @@ namespace Minesweeper
         public virtual void Win()
         {
             Console.WriteLine("You win!");
+        }
+
+        public virtual void DrawBoard()
+        {
         }
     }
 }

@@ -9,13 +9,19 @@ namespace Tests
         private class FakeUi : Ui
         {
             public bool HasEnded { get; private set; }
+            public bool BoardDrawn { get; private set; }
 
             public override void Win()
             {
                 HasEnded = true;
             }
-        }
 
+            public override void DrawBoard()
+            {
+                BoardDrawn = true;
+            }
+        }
+        
         private Game _testObj;
         private FakeUi _testObjUi;
 
@@ -38,6 +44,13 @@ namespace Tests
         {
             _testObj.Play();
             Assert.True(_testObjUi.HasEnded);
+        }
+
+        [Test]
+        public void PlayDrawsBoardBeforeGameEnd()
+        {
+            _testObj.Play();
+            Assert.That(_testObjUi.BoardDrawn);
         }
     }
 }
