@@ -10,46 +10,37 @@ namespace Tests
         [Test]
         public void DrawsEmptyBoard()
         {
-            var testObj = new TestableUi();
-            testObj.DrawBoard(new Board(0, 0));
-            Assert.That(testObj.CellsPrinted, Is.EqualTo(0));
+            DrawsCellsForBoard(new Board(0,0));
         }
 
         [Test]
         public void DrawsOneByOne()
         {
-            var testObj = new TestableUi();
-            testObj.DrawBoard(new Board(1, 1));
-            Assert.That(testObj.PrintedCells, Is.EquivalentTo(new[] { Cell(0, 0) }));
+            DrawsCellsForBoard(new Board(1, 1), Cell(0, 0));
         }
-
+        
         [Test]
         public void DrawsOneByTwo()
         {
-            var testObj = new TestableUi();
-            testObj.DrawBoard(new Board(1, 2));
-            Assert.That(testObj.PrintedCells, Is.EquivalentTo(new[] { Cell(0, 0), Cell(0, 1) }));
+            DrawsCellsForBoard(new Board(1, 2), Cell(0, 0), Cell(0, 1));            
         }
 
         [Test]
         public void DrawsTwoByOne()
         {
-            var testObj = new TestableUi();
-            testObj.DrawBoard(new Board(2, 1));
-            Assert.That(testObj.PrintedCells, Is.EquivalentTo(new[] { Cell(0, 0), Cell(1, 0) }));
+            DrawsCellsForBoard(new Board(2, 1), Cell(0, 0), Cell(1, 0));
         }
-
+       
         private static Cell Cell(int row, int column)
         {
             return new Cell(row, column);
         }
 
-        [Test]
-        public void DrawsBoard()
+        private static void DrawsCellsForBoard(Board board, params Cell[] enumerable)
         {
             var testObj = new TestableUi();
-            testObj.DrawBoard(new Board(4, 3));
-            Assert.That(testObj.CellsPrinted, Is.EqualTo(12));
+            testObj.DrawBoard(board);
+            Assert.That(testObj.PrintedCells, Is.EquivalentTo(enumerable));
         }
     }
 }
