@@ -8,9 +8,9 @@
         {
             var numberOfCells = board._rows * board._columns;
             for(var i =0; i <numberOfCells ;i++)
-                PrintCell();
+                PrintCell('.', 0, 0);
         }
 
-        protected abstract void PrintCell();
+        protected abstract void PrintCell(char content, int row, int column);
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Minesweeper
+﻿namespace Minesweeper
 {
     public class Game
     {
@@ -22,18 +20,4 @@ namespace Minesweeper
             Ui = new ConsoleUi();
         }
     }
-
-    internal class ConsoleUi : Ui
-    {
-        public override void Win()
-        {
-            Console.WriteLine("You Win!");
-        }
-
-
-        protected override void PrintCell()
-        {
-            
-        }
-}
 }
