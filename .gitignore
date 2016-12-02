@@ -1,0 +1,65 @@
+
+#ignore thumbnails created by windows
+Thumbs.db
+#Ignore files build by Visual Studio
+[Bb]in/
+[Oo]bj/
+*.ilk
+*.user
+*.suo
+.*.swp
+.*.swo
+*~
+**/packages
+*.orig
+*.pdb*
+TestResults/
+
+*.swm
+*.swn
+*.bak
+
+InstallUtil.InstallLog
+Projects/ELAdaptiveProblemServer/ELAdaptiveProblemServer.sublime-workspace
+__pycache__
+
+*.pyc
+*.psess
+*.vspx
+
+# ignore LocalScripts folder
+/LocalScripts/
+
+# ignore machine learning policy files
+*.out
+
+# ignore doxygen output files
+unitydocs/*
+*.apk
+unity3d_editor.log
+
+#Adobe Air ANE output
+Air/AirTestApp/dist/
+Air/AirTestApp/ext/*.ane
+
+Air/EnlearnLibrary/AirLibrary.swc
+Air/EnlearnLibrary/catalog.xml
+Air/EnlearnLibrary/library.swf
+
+Air/EnlearnLibrary/lib/AirLibrary.swc
+Air/EnlearnLibrary/lib/Android-ARM/library.swf
+Air/EnlearnLibrary/lib/EnlearnLibrary.swc
+Air/EnlearnLibrary/lib/catalog.xml
+Air/EnlearnLibrary/lib/library.swf
+Air/EnlearnLibrary/lib/Android-ARM/EnlearnLibrary.jar
+Air/EnlearnLibrary/lib/EnlearnLibrary.ane
+Air/EnlearnLibrary/lib/*
+
+#ignore Xamarin generated files
+Air/XamarinService/EnlearnClientWrapper/Resources/Resource.Designer.cs
+Air/XamarinService/EnlearnService/Resources/Resource.designer.cs
+Air/XamarinService/EnlearnServiceTests/Resources/Resource.Designer.cs
+
+UnityClient/Assets/Enlearn.Unity/Assemblies/
+UnityClient/Assets/Enlearn.Client/Assemblies/
+/unity3d_editor_testresults.log
