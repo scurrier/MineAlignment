@@ -23,6 +23,22 @@ namespace Tests
             Assert.That(testObj.PrintedCells, Is.EquivalentTo(new[] { Cell(0, 0) }));
         }
 
+        [Test]
+        public void DrawsOneByTwo()
+        {
+            var testObj = new TestableUi();
+            testObj.DrawBoard(new Board(1, 2));
+            Assert.That(testObj.PrintedCells, Is.EquivalentTo(new[] { Cell(0, 0), Cell(0, 1) }));
+        }
+
+        [Test]
+        public void DrawsTwoByOne()
+        {
+            var testObj = new TestableUi();
+            testObj.DrawBoard(new Board(2, 1));
+            Assert.That(testObj.PrintedCells, Is.EquivalentTo(new[] { Cell(0, 0), Cell(1, 0) }));
+        }
+
         private static Cell Cell(int row, int column)
         {
             return new Cell(row, column);

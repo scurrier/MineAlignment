@@ -6,9 +6,9 @@
 
         public virtual void DrawBoard(Board board)
         {
-            var numberOfCells = board.Rows * board.Columns;
-            for (var i = 0; i < numberOfCells; i++)
-                PrintCell(board.GetCell(0,0));
+            for(var row = 0; row<board.Rows;row++)
+                for (var column = 0; column < board.Columns; column++)
+                    PrintCell(board.GetCell(row,column));
         }
 
         protected abstract void PrintCell(Cell cell);
