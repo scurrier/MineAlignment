@@ -13,25 +13,27 @@ namespace Minesweeper
 
         public void Play()
         {
-            Ui.DrawBoard();
+            Ui.DrawBoard(new Board(0,0));
             Ui.Win();
         }
 
         internal Game()
         {
-            Ui = new Ui();
+            Ui = new ConsoleUi();
         }
     }
 
-    internal class Ui
+    internal class ConsoleUi : Ui
     {
-        public virtual void Win()
+        public override void Win()
         {
-            Console.WriteLine("You win!");
+            Console.WriteLine("You Win!");
         }
 
-        public virtual void DrawBoard()
+
+        protected override void PrintCell()
         {
+            
         }
-    }
+}
 }

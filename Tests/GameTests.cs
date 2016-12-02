@@ -16,9 +16,14 @@ namespace Tests
                 HasEnded = true;
             }
 
-            public override void DrawBoard()
+            public override void DrawBoard(Board board)
             {
                 BoardDrawn = true;
+            }
+
+            protected override void PrintCell()
+            {
+                
             }
         }
         
