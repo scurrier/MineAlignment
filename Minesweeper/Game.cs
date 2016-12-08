@@ -4,12 +4,13 @@ namespace Minesweeper
 {
     public  class Game
     {
-        private Ui _ui = new ConsoleUi();
+        private Ui _ui;
         private readonly Board _board;
 
         public Game(int rows, int columns)
         {
             _board = new Board(rows, columns);
+            OverrideUi(new ConsoleUi());
         }
 
         public static Game Create(int rows, int columns)
@@ -27,24 +28,25 @@ namespace Minesweeper
         internal void OverrideUi(Ui ui)
         {
             _ui = ui;
+            ui.SetBoard(_board);
         }
     }
 
     public class Board
     {
-        private readonly int _rows;
-        private readonly int _cols;
+        public int Rows { get; }
+        public int Columns { get; }
 
         public Board(int rows, int cols)
         {
-            _rows = rows;
-            _cols = cols;
+            Rows = rows;
+            Columns = cols;
         }
-
+        
         public void VisitCells(Action<Cell> updateCell)
         {
-            for (int i = 0; i < _rows; i++)
-                for (int j = 0; j < _cols; j++)
+            for (int i = 0; i < Rows; i++)
+                for (int j = 0; j < Columns; j++)
                     updateCell(new Cell(i, j));
         }
     }
