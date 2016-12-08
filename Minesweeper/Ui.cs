@@ -5,9 +5,9 @@
         protected Board _board;
         public abstract void GameOver();
 
-        public void Refresh(Board board)
+        public void Refresh()
         {
-            board.VisitCells(UpdateCell);
+            _board.VisitCells(UpdateCell);
         }
 
         public abstract void UpdateCell(Cell cell);

@@ -21,7 +21,7 @@ namespace Minesweeper
 
         public void Play()
         {
-            _ui.Refresh(_board);
+            _ui.Refresh();
             _ui.GameOver();
         }
 
