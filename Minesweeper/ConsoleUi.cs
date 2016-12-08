@@ -8,5 +8,10 @@ namespace Minesweeper
         {
             Console.WriteLine("Game over, dude!");
         }
+
+        public override void UpdateCell(Cell cell)
+        {
+            
+        }
     }
 }
