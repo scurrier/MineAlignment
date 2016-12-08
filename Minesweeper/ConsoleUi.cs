@@ -6,12 +6,13 @@ namespace Minesweeper
     {
         public override void GameOver()
         {
-            Console.WriteLine("Game over, dude!");
+            Console.WriteLine("\n\nGame over, dude!");
         }
 
         public override void UpdateCell(Cell cell)
         {
-            
+            Console.SetCursorPosition(cell.Col, cell.Row);
+            Console.Write("#");
         }
     }
 }
