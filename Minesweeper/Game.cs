@@ -43,8 +43,9 @@ namespace Minesweeper
 
         public void VisitCells(Action<Cell> updateCell)
         {
-            for (int i = 0; i < _rows*_cols; i++)
-                updateCell(null);
+            for (int i = 0; i < _rows; i++)
+                for (int j = 0; j < _cols; j++)
+                    updateCell(new Cell(i, j));
         }
     }
 }
