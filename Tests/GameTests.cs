@@ -43,19 +43,32 @@ namespace Tests
             _testObj.Play();
             Assert.That(_ui.GameOver, Is.True);
         }
+
+        [Test]
+        public void SetUiSetsBoard()
+        {
+            _testObj = Game.Create(0, 0);
+            _testObj.SetUi(_ui);
+            Assert.That(_ui.HasBoard, Is.True);
+        }
     }
 
-    internal class TestUi : IUi
+    internal class TestUi : Ui
     {
         public bool UiUpdated;
         public bool GameOver;
 
-        public void EndGame()
+        public override void EndGame()
         {
             GameOver = true;
         }
 
-        public void Update()
+        public bool HasBoard()
+        {
+            return Board != null;
+        }
+
+        public override void Update()
         {
             UiUpdated = true;
         }

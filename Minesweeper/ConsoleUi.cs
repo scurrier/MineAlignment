@@ -2,14 +2,14 @@
 
 namespace Minesweeper
 {
-    public class ConsoleUi : IUi
+    public class ConsoleUi : Ui
     {
-        public void EndGame()
+        public override void EndGame()
         {
             Console.WriteLine("Game over.");
         }
 
-        public void Update()
+        public override void Update()
         {
             
         }
