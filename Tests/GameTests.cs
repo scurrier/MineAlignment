@@ -1,4 +1,5 @@
-﻿using Minesweeper;
+﻿using System;
+using Minesweeper;
 using NUnit.Framework;
 
 namespace Tests
@@ -15,10 +16,18 @@ namespace Tests
         private Game _testObj;
         private TestUi _ui;
 
-        private void SetupGame()
+        private void SetupGame(int rows = 0, int columns = 0)
+        {
+            _testObj = Game.Create(rows, columns);
+            _testObj.SetUi(_ui);
+        }
+
+        [Test]
+        public void SetUiSetsBoard()
         {
             _testObj = Game.Create(0, 0);
             _testObj.SetUi(_ui);
+            Assert.That(_ui.HasBoard, Is.True);
         }
 
         [Test]
@@ -26,14 +35,6 @@ namespace Tests
         {
             _testObj = Game.Create(0, 0);
             Assert.DoesNotThrow(_testObj.Play);
-        }
-
-        [Test]
-        public void TestUiUpdatesWhenGamePlayed()
-        {
-            SetupGame();
-            _testObj.Play();
-            Assert.That(_ui.UiUpdated, Is.True);
         }
 
         [Test]
@@ -45,17 +46,18 @@ namespace Tests
         }
 
         [Test]
-        public void SetUiSetsBoard()
+        public void TestUiUpdatesWhenGamePlayed()
         {
-            _testObj = Game.Create(0, 0);
-            _testObj.SetUi(_ui);
-            Assert.That(_ui.HasBoard, Is.True);
+            SetupGame(2, 1);
+            _testObj.Play();
+            Assert.That(_ui.CellsUpdated, Is.EqualTo(2));
         }
+
     }
 
     internal class TestUi : Ui
     {
-        public bool UiUpdated;
+        public int CellsUpdated;
         public bool GameOver;
 
         public override void EndGame()
@@ -68,9 +70,9 @@ namespace Tests
             return Board != null;
         }
 
-        public override void Update()
+        internal override void UpdateCell(Cell cell)
         {
-            UiUpdated = true;
+            CellsUpdated++;
         }
     }
 }

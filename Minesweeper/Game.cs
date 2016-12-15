@@ -5,16 +5,16 @@
         private Ui _ui;
         private Board _board;
 
-        public Game()
+        private Game(int rows, int columns)
         {
-            _board = new Board();
+            _board = new Board(rows, columns);
             var ui = new ConsoleUi();
             SetUi(ui);
         }
 
         public static Game Create(int rows, int columns)
         {
-            return new Game();
+            return new Game(rows, columns);
         }
 
         public void Play()
