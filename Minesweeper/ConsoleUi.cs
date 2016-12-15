@@ -8,5 +8,10 @@ namespace Minesweeper
         {
             Console.WriteLine("Game over.");
         }
+
+        public void Update()
+        {
+            
+        }
     }
 }

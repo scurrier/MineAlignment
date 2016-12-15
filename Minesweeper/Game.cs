@@ -15,6 +15,7 @@
 
         public void Play()
         {
+            _ui.Update();
             _ui.EndGame();
         }
 
