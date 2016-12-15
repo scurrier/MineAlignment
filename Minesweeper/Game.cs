@@ -3,18 +3,18 @@
     public class Game
     {
         private Ui _ui;
-        private Board _board;
+        private readonly Board _board;
 
-        private Game(int rows, int columns)
+        private Game(Board board)
         {
-            _board = new Board(rows, columns);
+            _board = board;
             var ui = new ConsoleUi();
             SetUi(ui);
         }
 
         public static Game Create(int rows, int columns)
         {
-            return new Game(rows, columns);
+            return new Game(new Board(rows, columns));
         }
 
         public void Play()
