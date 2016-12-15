@@ -11,6 +11,7 @@
         }
 
         internal abstract void UpdateCell(Cell cell);
+
         public void SetBoard(Board board)
         {
             Board = board;
