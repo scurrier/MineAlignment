@@ -15,8 +15,9 @@ namespace Minesweeper
 
         public void CollectCells(Action<Cell> collector)
         {
-            for(var i = 0; i < _rows*_columns; i++)
-                collector(null);
+            for(var row = 0; row < _rows; row++)
+            for(var col = 0; col < _columns; col++)
+                    collector(new Cell(row, col));
         }
     }
 }
