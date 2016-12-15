@@ -9,6 +9,7 @@ namespace Minesweeper
     {
         static void Main(string[] args)
         {
+            Game.Create(24, 70).Play();
         }
     }
 }
